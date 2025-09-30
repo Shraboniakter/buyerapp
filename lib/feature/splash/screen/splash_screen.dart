@@ -1,3 +1,4 @@
+import 'package:buyerapp/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:buyerapp/core/utils/assetpaths.dart';
 
@@ -15,11 +16,11 @@ class SplashScreen extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(30.0),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [CircularProgressIndicator()],
+              children: [CircularProgressIndicator(color: AppColors.green)],
             ),
           ),
         ),

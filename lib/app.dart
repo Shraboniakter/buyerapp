@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:buyerapp/core/binding/binding.dart';
+import 'package:buyerapp/core/route/route.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -13,7 +15,13 @@ class App extends StatelessWidget {
       splitScreenMode: true,
 
       builder: (__, child) {
-        return GetMaterialApp(debugShowCheckedModeBanner: false);
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Buyer App',
+          initialRoute: AppRoutes.splash,
+          getPages: AppRoutes().pages,
+          initialBinding: AppBinding(),
+        );
       },
     );
   }

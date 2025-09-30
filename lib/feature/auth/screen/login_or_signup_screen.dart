@@ -1,10 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+class LoginOrSignupScreen extends StatelessWidget {
+  const LoginOrSignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text("AppBar")));
+    return Scaffold(body: Center(child: Text("Login or Signup Screen")));
   }
 }
