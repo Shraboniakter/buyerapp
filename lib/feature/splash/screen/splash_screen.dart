@@ -1,6 +1,7 @@
 import 'package:buyerapp/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:buyerapp/core/utils/assetpaths.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -20,7 +21,7 @@ class SplashScreen extends StatelessWidget {
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [CircularProgressIndicator(color: AppColors.green)],
+              children: [SpinKitCircle(color: AppColors.green)],
             ),
           ),
         ),
