@@ -1,4 +1,5 @@
 import 'package:buyerapp/core/global_widget/custom_text.dart';
+import 'package:buyerapp/core/utils/app_colors.dart';
 import 'package:buyerapp/core/utils/assetpaths.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,13 @@ class LoginOrSignupScreen extends StatelessWidget {
             text: "Log in or sign up",
             size: 24,
             fontWeight: FontWeight.w600,
+          ),
+          SizedBox(height: 10),
+          CustomTextPoppins(
+            text: "Phone",
+            size: 14,
+            fontWeight: FontWeight.w500,
+            color: AppColors.grey,
           ),
         ],
       ),
