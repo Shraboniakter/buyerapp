@@ -3,6 +3,7 @@ import 'package:buyerapp/core/global_widget/custom_text.dart';
 import 'package:buyerapp/core/utils/app_colors.dart';
 import 'package:buyerapp/core/utils/assetpaths.dart';
 import 'package:buyerapp/feature/auth/controller/controller.dart';
+import 'package:buyerapp/feature/auth/screen/otp_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -74,17 +75,25 @@ class LoginOrSignupScreen extends StatelessWidget {
 
                 SizedBox(
                   width: double.infinity,
-                  child: CustomButtom(text: "CONTINUE"),
+                  child: CustomButtom(
+                    text: "CONTINUE",
+                    onTap: () {
+                      Get.to(() => OtpScreen());
+                    },
+                  ),
                 ),
                 SizedBox(height: 154),
 
-                CustomTextPoppins(
-                  text:
-                      "By continuing, you agree to our Terms of Service • Privacy Policy • Content Policies",
-                      textAlign: TextAlign.center,
-                      size: 12,
-                      color: AppColors.grey1,
-                      fontWeight: FontWeight.w400,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CustomTextPoppins(
+                    text:
+                        "By continuing, you agree to our Terms of Service • Privacy Policy • Content Policies",
+                    textAlign: TextAlign.center,
+                    size: 12,
+                    color: AppColors.grey1,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ],
             ),
