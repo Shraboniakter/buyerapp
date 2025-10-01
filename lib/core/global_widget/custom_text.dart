@@ -25,6 +25,7 @@ class CustomTextPoppins extends StatelessWidget {
         color: color,
         fontWeight: fontWeight,
         fontSize: size,
+        
       ),
     );
   }

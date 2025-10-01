@@ -1,4 +1,3 @@
-import 'package:buyerapp/core/global_widget/custom_bottom.dart';
 import 'package:buyerapp/core/global_widget/custom_text.dart';
 import 'package:buyerapp/core/utils/app_colors.dart';
 import 'package:buyerapp/core/utils/assetpaths.dart';
@@ -75,6 +74,10 @@ class LoginOrSignupScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: CustomButtom(text: "CONTINUE"),
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: CustomButtom(text: "CONTINUE", color: AppColors.grey),
                 ),
               ],
             ),
