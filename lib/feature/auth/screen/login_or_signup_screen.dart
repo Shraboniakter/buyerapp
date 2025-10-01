@@ -1,4 +1,4 @@
-import 'package:buyerapp/core/global_widget/custom_bottom.dart';
+import 'package:buyerapp/core/global_widget/custom_elevatedbuttom.dart';
 import 'package:buyerapp/core/global_widget/custom_text.dart';
 import 'package:buyerapp/core/utils/app_colors.dart';
 import 'package:buyerapp/core/utils/assetpaths.dart';
@@ -76,43 +76,19 @@ class LoginOrSignupScreen extends StatelessWidget {
                   width: double.infinity,
                   child: CustomButtom(text: "CONTINUE"),
                 ),
+                SizedBox(height: 154),
+
+                CustomTextPoppins(
+                  text:
+                      "By continuing, you agree to our Terms of Service • Privacy Policy • Content Policies",
+                      textAlign: TextAlign.center,
+                      size: 12,
+                      color: AppColors.grey1,
+                      fontWeight: FontWeight.w400,
+                ),
               ],
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class CustomButtom extends StatelessWidget {
-  const CustomButtom({
-    super.key,
-    required this.text,
-    this.color,
-    this.textColor,
-  });
-  final String text;
-  final Color? color;
-  final Color? textColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: color ?? AppColors.green,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-      ),
-      onPressed: () {},
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 14.0),
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: textColor ?? AppColors.white,
-          ),
         ),
       ),
     );
