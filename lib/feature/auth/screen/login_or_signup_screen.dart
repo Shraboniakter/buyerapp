@@ -75,7 +75,7 @@ class LoginOrSignupScreen extends StatelessWidget {
 
                 SizedBox(
                   width: double.infinity,
-                  child: CustomButtom(
+                  child: CustomElevatedButtom(
                     text: "CONTINUE",
                     onTap: () {
                       Get.to(() => OtpScreen());

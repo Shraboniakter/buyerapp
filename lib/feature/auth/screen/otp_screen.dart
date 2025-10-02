@@ -1,41 +1,17 @@
+import 'package:buyerapp/core/global_widget/custom_elevatedbuttom.dart';
 import 'package:buyerapp/core/global_widget/custom_text.dart';
 import 'package:buyerapp/core/utils/app_colors.dart';
+import 'package:buyerapp/feature/auth/controller/otp_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pinput/pinput.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpScreen extends StatelessWidget {
-  final TextEditingController pinController = TextEditingController();
-  final defaultPinTheme = PinTheme(
-    width: 56,
-    height: 56,
-    textStyle: TextStyle(
-      fontSize: 20,
-      color: AppColors.white,
-      // fontWeight: FontWeight.w600,
-    ),
-    decoration: BoxDecoration(
-      border: Border.all(color: Color.fromRGBO(234, 239, 243, 1)),
-      borderRadius: BorderRadius.circular(30.r),
-    ),
-  );
-  OtpScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
-    final TextEditingController pinController = TextEditingController();
+    final OTPController controller = Get.put(OTPController());
 
-    final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-      border: Border.all(color: const Color.fromARGB(255, 0, 0, 0)),
-      borderRadius: BorderRadius.circular(8.r),
-    );
-
-    final submittedPinTheme = defaultPinTheme.copyWith(
-      decoration: defaultPinTheme.decoration?.copyWith(
-        color: Color.fromRGBO(32, 127, 206, 1),
-      ),
-    );
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -54,29 +30,74 @@ class OtpScreen extends StatelessWidget {
             child: Column(
               children: [
                 CustomTextPoppins(
-                  text: "Enter OTP send your number",
+                  text: "Enter OTP",
                   size: 20,
-                  color: AppColors.grey,
+                  color: AppColors.black,
                   fontWeight: FontWeight.w600,
                 ),
-                SizedBox(height: 32),
+                SizedBox(height: 16),
                 CustomTextPoppins(
-                  text: "Enter OTP",
+                  text: "Enter OTP send your number",
+                  size: 14,
+                  color: AppColors.grey1,
+                  fontWeight: FontWeight.w400,
+                ),
+                SizedBox(height: 32),
+                PinCodeTextField(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  keyboardType: TextInputType.phone,
+                  length: 5,
+                  obscureText: false,
+                  animationType: AnimationType.fade,
+                  pinTheme: PinTheme(
+                    shape: PinCodeFieldShape.box,
+                    borderRadius: BorderRadius.circular(5),
+                    fieldHeight: 60,
+                    fieldWidth: 60.6,
+                    activeFillColor: AppColors.white,
+                    inactiveFillColor: AppColors.white,
+                    inactiveColor: AppColors.neutrals,
+                    selectedFillColor: AppColors.grey1,
+                  ),
+                  animationDuration: const Duration(milliseconds: 300),
+                  backgroundColor: Colors.transparent,
+                  enableActiveFill: true,
+                  onCompleted: (v) {
+                    print("Completed");
+                  },
+                  onChanged: (value) {
+                    print(value);
+                  },
+                  appContext: context,
+                ),
+                SizedBox(height: 40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomTextPoppins(
+                      text: "Didn't receive the code?",
+                      size: 14,
+                      color: AppColors.grey,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    CustomTextPoppins(
+                      text: "Resend code",
+                      size: 14,
+                      color: AppColors.black,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8),
+                CustomTextPoppins(
+                  text: "Resend code at 00:59",
                   size: 14,
                   color: AppColors.black,
                   fontWeight: FontWeight.w400,
                 ),
-                SizedBox(height: 16),
-                Pinput(
-                  controller: pinController,
-                  length: 5,
-                  defaultPinTheme: defaultPinTheme,
-                  focusedPinTheme: focusedPinTheme,
-                  submittedPinTheme: submittedPinTheme,
-
-                  showCursor: true,
-                  onCompleted: (pin) => print(pin),
-                ),
+                Expanded(child: SizedBox()),
+                CustomElevatedButtom(text: "CONTINUE", onTap: () {}),
+                SizedBox(height: 24),
               ],
             ),
           ),
